@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>Formulario de Datos</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let mensaje = prompt("Introduce nombre y dos apellidos y tu fecha de nacimiento (dd/mm/aa) separados por comas:", "Pepe,Garcia,Son,20/12/1910");
+        alert(mensaje);
+
+        let respuesta = mensaje.split(",");
+        let nombre = respuesta[0];
+        let apellido1 = respuesta[1];
+        let apellido2 = respuesta[2];
+        let fechaString = respuesta[3];
+
+        let partesFecha = fechaString.split("/");
+        let dia = parseInt(partesFecha[0]);
+        let mes = parseInt(partesFecha[1]);
+        switch (mes) {
+            case 1:
+                mes = "enero";
+                break;
+            case 2:
+                mes = "febrero"
+                break;
+            case 3:
+                mes = "marzo"
+                break;
+            case 4:
+                mes = "abril"
+                break;
+            case 5:
+                mes = "mayo"
+                break;
+            case 6:
+                mes = "junio"
+                break;
+            case 7:
+                mes = "julio"
+                break;
+            case 8:
+                mes = "agosto"
+                break;
+            case 9:
+                mes = "septiembre"
+                break;
+            case 10:
+                mes = "octubre"
+                break;
+            case 11:
+                mes = "noviembre"
+                break;
+            case 12:
+                mes = "diciembre"
+                break;
+        }
+        let anio = parseInt(partesFecha[2]);
+
+        let fecha = new Date(anio, mes, dia);
+        let diaSemana = fecha.toLocaleString('es-ES', { weekday: 'long' });
+
+        document.open();
+        document.write("<table border='1' style='width: 50%; margin-top: 20px;'>");
+        document.write("<tr><td>Nombre</td><td>" + nombre + "</td></tr>");
+        document.write("<tr><td>Primer apellido</td><td>" + apellido1 + "</td></tr>");
+        document.write("<tr><td>Segundo apellido</td><td>" + apellido2 + "</td></tr>");
+        document.write("<tr><td>Fecha</td><td>" + diaSemana + ", " + dia + " de " + mes + " de " + anio + "</td></tr>");
+        document.write("</table>");
+        document.close();
+    </script>
+</body>
+
+</html>

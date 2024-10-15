@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style type="text/css">
+        div {
+            border: solid 1px black;
+            position: absolute;
+            width: 75px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;        
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                     
+        for (let i = 0; i < meses.length; i++) {
+            let ejeX = rand(0, 801);
+            let ejeY = rand(0, 201);
+
+            let colorR = rand(0, 256);
+            let colorG = rand(0, 256);
+            let colorB = rand(0, 256);
+            let color = `rgb(${colorR}, ${colorG}, ${colorB})`;
+
+            let estilo = `left: ${ejeX}px; top: ${ejeY}px; background-color: ${color};`;
+            document.write(`<div style="${estilo}">${meses[i]}</div>`);
+        }
+        
+        function rand(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    let
+    <label>Añadir usuario:</label>
+    <input type="text" id="usuario" required>
+    <input type="password" id="contrasenia" required>
+    <button onclick="añadirUsuario()">Registrar</button>
+    <br>
+    <script type="text/javascript">
+        let conjuntoUsuarios = new Map();
+
+        function añadirUsuario() {
+            let clave = document.getElementById('usuario').value;
+            let valor = document.getElementById('contrasenia').value;
+            conjuntoUsuarios.set(clave, valor);
+        }
+    </script>
+
+    <label>Eliminar usuario:</label>
+    <input type="text" id="usuarioBorrar">
+    <button onclick="borrarUsuario()">Registrar</button>
+
+    <script type="text/javascript">
+        function borrarUsuario() {
+            for (let [clave, valor] of conjuntoUsuarios) {
+                if (document.getElementById("usuarioBorrar") === conjuntoUsuarios.has(clave)) {
+                    conjuntoUsuarios.delete("usuarioBorrar");
+                }
+            }
+        }
+    </script>
+    <br>
+    <button onclick="mostrarUsuarios()">Listado de usuarios:</button>
+
+    <script type="text/javascript">
+        for (let [clave, valor] of conjuntoUsuarios) {
+            conjuntoUsuarios.size();
+        }  
+    </script>
+
+</body>
+
+</html>

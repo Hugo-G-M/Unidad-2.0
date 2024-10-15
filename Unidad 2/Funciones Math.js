@@ -1,0 +1,1 @@
+console.log(Math.PI, Math.E, Math.sin(90), Math.cos(90), Math.tan(90));

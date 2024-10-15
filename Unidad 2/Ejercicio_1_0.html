@@ -1,0 +1,31 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let mensaje = prompt("Introduce nombre y dos apellidos y tu fecha de nacimiento (dd/mm/aa) separados por comas:","Pepe,Garcia,Son,20/10/10");
+        alert(mensaje);
+
+        let respuesta = entrada.split(",");
+        console.log(respuesta);
+
+        let nombre = respuesta[0];
+        let apellido1 = respuesta[1];
+        let apellido2 = respuesta[2];
+
+        let diaSemana = respuesta[3].getDay();
+        let dia = respuesta[3].getDate();
+        let mes = respuesta[3].getMonth();
+        let anio = respuesta[3].getFullYear();
+
+        let fechaCompleta = diaSemana + ", " + dia + " de " + mes + " de " + anio;
+        document.open();
+        document.write("<p>" + (respuesta[0]) + "</p>");
+        document.close();
+
+    </script>
+</body>
+
+</html>
