@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cursor con imagen</title>
+    <style>
+        img {
+            position:absolute;
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="recursos/imagen.jpg" alt="imagen" id="imagen" class="imagen">
+    <script>
+        imagen = document.querySelector("img");
+        document.querySelector("html").addEventListener('mousemove',function(event) {
+            imagen.style.top = (event.clientY) + 'px';
+            imagen.style.left = (event.clientX) + 'px';
+        })
+
+        asterisco = document.createElement("div");
+        document.querySelector("html").addEventListener('click',function(event) {
+            nuevoAsterisco = asterisco.cloneNode(false);
+            nuevoAsterisco.innerHTML = "*";
+            nuevoAsterisco.style.top = (event.clientY) + 'px';
+            nuevoAsterisco.style.left = (event.clientX) + 'px';
+            nuevoAsterisco.style.position = "absolute";
+            document.body.prepend(nuevoAsterisco);
+        })
+    </script>
+</body>
+
+</html>
