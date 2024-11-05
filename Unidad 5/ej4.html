@@ -1,0 +1,31 @@
+
+<html>
+<head>
+</head>
+<body>
+    <script>
+        let urls = [
+            'https://www.google.com',
+            'https://www.wikipedia.org',
+            'https://www.github.com',
+            'https://www.stackoverflow.com'
+        ];
+        let ul = document.createElement('ul');
+        urls.forEach(url => {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            a.innerHTML = url;
+            a.href = url;
+
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        document.body.appendChild(ul);
+    </script>
+</body>
+</html>
+
+setInterval(fn, 1000)
+    function fn() {
+        
+    }

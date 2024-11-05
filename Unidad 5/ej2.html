@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="id0" style="border:solid 1px black">Esto es un contenedor</div>
+    <script>
+        let donde = document.querySelector('#id0');
+        let e1 = document.createElement('DIV');
+        e1.innerHTML="<strong>Prueba1</strong>";
+        donde.append(e1);
+        let e2 = document.createElement('DIV');
+        e2.innerHTML = "<strong>Prueba2</strong>";
+        donde.prepend(e2);
+    </script>
+</body>
+
+</html>

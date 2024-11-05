@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 35</title>
+</head>
+
+<body>
+    <p onclick="parrafoSeleccionado(this);">Primer párrafo</p>
+    <p onclick="parrafoSeleccionado(this);">Segundo párrafo</p>
+    <p onclick="parrafoSeleccionado(this);">Tercer párrafo</p>
+
+    <script>
+        let insertarAlInicio = true;
+        // Clona el párrafo sobre el que se hace clic y en función de la variable booleana lo inserta al inicio o al final del documento
+        function parrafoSeleccionado(parrafo) {
+            let nuevoParrafo = parrafo.cloneNode(true);
+            if (insertarAlInicio == true) {
+                document.body.prepend(nuevoParrafo);
+                insertarAlInicio = false;
+            } else {
+                document.body.append(nuevoParrafo);
+                insertarAlInicio = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

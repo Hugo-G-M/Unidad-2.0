@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="id0" style="border:solid 1px black">Esto es un contenedor</div>
+    <script>
+        let d = document.querySelector('#id0');
+        let copiaProfunda = d.cloneNode(true);
+        d.after(copiaProfunda);
+        let copiaSuperficial = d.cloneNode(false);
+        d.after(copiaSuperficial);
+        d.remove();
+        console.log(copiaProfunda.outerHTML);
+        console.log(copiaSuperficial.outerHTML);
+    </script>
+</body>
+</html>

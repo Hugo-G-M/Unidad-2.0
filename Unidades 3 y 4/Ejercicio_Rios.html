@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+    class Rio {
+    constructor(nombre, cuenca) {
+        this.nombre = nombre;
+        this.cuenca = cuenca;
+        this.caudalMedio = null;
+        this.poblaciones = [];
+        
+        console.log(`Nuevo río ${this.nombre}, de la cuenca: ${this.cuenca}.`);
+    }
+
+    agregarPoblacion(poblacion) {
+        if (!this.poblaciones.includes(poblacion)) {
+            this.poblaciones.push(poblacion);
+            console.log(`El río ${this.nombre} pasa por ${poblacion}.`);
+        } else {
+            console.log(`El río ${this.nombre} ya pasa por ${poblacion}.`);
+        }
+    }
+
+    eliminarPoblacion(poblacion) {
+        let index = this.poblaciones.indexOf(poblacion);
+        if (index !== -1) {
+            this.poblaciones.splice(index, 1);
+            console.log(`El río ${this.nombre} no pasa por ${poblacion}.`);
+        } else {
+            console.log(`El río ${this.nombre} no pasa por ${poblacion}.`);
+        }
+    }
+
+    modificarCaudalmedio(numero) {
+        this.caudalMedio = numero;
+    }
+
+    imprimeNombre() {
+        return this.nombre;
+    }
+
+    imprimeCuenca() {
+        return this.cuenca;
+    }
+
+    imprimeCaudal() {
+        return this.caudalMedio !== null ? this.caudalMedio : 'No consta';
+    }
+
+    imprimePoblaciones() {
+        return this.poblaciones.length > 0 ? this.poblaciones.join(', ') : 'No consta';
+    }
+
+    imprimeRio() {
+        return `Nombre: ${this.nombre}, Cuenca: ${this.cuenca}, Caudal medio: ${this.imprimeCaudal()}, Poblaciones: ${this.imprimePoblaciones()}`;
+    }
+}
+
+
+let rioA = new Rio('Duero', 'Atlántica');
+let rioB = new Rio('Ebro', 'Mediterránea');
+console.log("------------------");
+
+console.log(rioA.imprimeNombre());
+console.log(rioA.imprimeCuenca());
+console.log(rioA.imprimeCaudal());
+console.log(rioA.imprimePoblaciones());
+console.log(rioA.imprimeRio());
+
+console.log("------------------");
+
+rioB.modificarCaudalmedio(50);
+console.log(rioB.imprimeCaudal());
+
+console.log("------------------");
+
+rioB.agregarPoblacion('Miranda de Ebro');
+rioB.agregarPoblacion('Tortosa');
+rioB.agregarPoblacion('Valladolid');
+
+console.log("------------------");
+
+console.log(rioB.imprimePoblaciones());
+
+console.log("------------------");
+
+rioB.eliminarPoblacion('Valladolid');
+
+console.log("------------------");
+
+console.log(rioB.imprimePoblaciones());
+    </script>
+</body>
+</html>

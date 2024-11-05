@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 30</title>
+</head>
+
+<body>
+    <p textoOriginal="Primer párrafo" onclick="parrafoSeleccionado(this);">Primer párrafo</p>
+    <p textoOriginal="Segundo párrafo" onclick="parrafoSeleccionado(this);">Segundo párrafo</p>
+    <p textoOriginal="Tercer párrafo" onclick="parrafoSeleccionado(this);">Tercer párrafo</p>
+    <p textoOriginal="Cuarto párrafo" onclick="parrafoSeleccionado(this);">Cuarto párrafo</p>
+    <p textoOriginal="Quinto párrafo" onclick="parrafoSeleccionado(this);">Quinto párrafo</p>
+    <p textoOriginal="Sexto párrafo" onclick="parrafoSeleccionado(this);">Sexto párrafo</p>
+    <p textoOriginal="Séptimo párrafo" onclick="parrafoSeleccionado(this);">Séptimo párrafo</p>
+    <p textoOriginal="Octavo párrafo" onclick="parrafoSeleccionado(this);">Octavo párrafo</p>
+    <p textoOriginal="Noveno párrafo" onclick="parrafoSeleccionado(this);">Noveno párrafo</p>
+    <p textoOriginal="Décimo párrafo" onclick="parrafoSeleccionado(this);">Décimo párrafo</p>
+
+    <script>
+        function parrafoSeleccionado(parrafo) {
+            let parrafos = document.querySelectorAll('p');
+            let contenido = "";
+            /*  
+            *   Obtiene el texto de los párrafos del principio y lo muestra en la posición del nuevo párrafo, 
+            *   porque sino al pulsar un segundo párrafo tomaría el texto de la página cambiada al pulsar el párrafo anterior.
+            */
+            for (let i = 0; i < parrafos.length; i++) {
+                contenido += parrafos[i].getAttribute('textoOriginal') + "<br>";
+            }
+            parrafo.style.border = "red 5px solid";
+            parrafo.innerHTML = contenido;
+        }
+    </script>
+</body>
+
+</html>

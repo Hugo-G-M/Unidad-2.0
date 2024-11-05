@@ -24,7 +24,7 @@ Junta los elementos de un array y los convierte en una cadena de texto.
 Si no se especifica un separador dentro de los corchetes, usará la coma por defecto.
 Puedes meter cualquier cosa como separador.
 */
-let a=lista1.join("");
+let a=lista1.join("@");
 console.log(a,typeof(a));
 /*
     SHIFT y POP

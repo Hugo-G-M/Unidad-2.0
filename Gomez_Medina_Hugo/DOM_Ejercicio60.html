@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 60</title>
+    <style>
+        .parrafo1 {
+            color: red;
+            text-align: left;
+        }
+
+        .parrafo2 {
+            color: blue;
+            text-align: right;
+        }
+
+        img {
+            display: block;
+            margin: 10px;
+        }
+
+        .dibujo {
+            border: 10px solid black;
+            height: 150px;
+            width: 300px;
+        }
+
+        .imagen {
+            border: 5px solid black;
+            height: 75px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="cambiarParrafo()">Intercambiar párrafos</button>
+    <button onclick="cambiarImagen()">Intercambiar imágenes</button>
+
+    <p id="parrafo1" class="parrafo1">Primer párrafo</p>
+    <p id="parrafo2" class="parrafo2">Segundo párrafo</p>
+    <p id="parrafo3" class="parrafo3">Tercer párrafo</p>
+
+    <img src="recursos/midibujo.gif" alt="dibujo" id="dibujo" class="dibujo">
+    <img src="recursos/images.gif" alt="imagen" id="imagen" class="imagen">
+
+    <script>
+        function cambiarImagen() {
+            let imagen1 = document.getElementById('imagen');
+            let imagen2 = document.getElementById('dibujo');
+
+            let src1 = imagen1.src;
+            let src2 = imagen2.src;
+
+            imagen1.src = src2;
+            imagen2.src = src1;
+        }
+
+        function cambiarParrafo() {
+            let parrafo1 = document.getElementById('parrafo1');
+            let parrafo2 = document.getElementById('parrafo2');
+
+            let texto1 = parrafo1.innerText;
+            let texto2 = parrafo2.innerText;
+
+            parrafo1.innerText = texto2;
+            parrafo2.innerText = texto1;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <style type="text/css">
+        div {
+            border: solid 1px black;
+            position: absolute;
+            width: 75px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="principal" style="border:solid 1px black; height:300px; width:700px; margin:0 auto; background:orange;"></div>
+    <script>
+        let publicidad = ["Anuncio 1", "Anuncio 2", "Anuncio 3", "Anuncio 4", "Anuncio 5", "Anuncio 6"];
+        
+        let principal = document.querySelector('#principal');
+        let anuncios = principal.cloneNode(true);
+        console.log(anuncios.outerHTML);
+        console.log("------------------");
+        anuncios.setAttribute('style','');
+        console.log(anuncios.outerHTML);
+        let contador = 1;
+        publicidad.forEach(publi => {
+            let caja = document.createElement('DIV');
+            anuncios.setAttribute('id','$contador');
+            caja.innerHTML = anuncios;
+            console.log(caja.outerHTML);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="id0">Esto es un contenedor
+        <a href="http://uno.com">uno</a>
+        <div id="id1">Esto es un bloque
+            <a href="http://dos.com">dos</a>
+            <input name="prueba1"/>
+            <input name="prueba2"/>
+        </div>
+    </div>
+
+    <script>
+        let divs = document.querySelectorAll('div');
+        divs.forEach(div => {
+            console.log(`ID: ${div.id}, Texto: ${div.textContent.trim()}`);
+        });
+
+        let enlaces = document.querySelectorAll('a');
+        enlaces.forEach(enlace => {
+            console.log(`URL: ${enlace.href}`);
+        });
+
+        let contenedor = document.getElementById('id0');
+        let nodosHijos = contenedor.childNodes;
+        nodosHijos.forEach(nodoHijo => {
+            if (nodoHijo.nodeType === Node.TEXT_NODE) {
+                // Mostrar el texto de los nodos de tipo texto
+                console.log(`Texto: "${nodoHijo.textContent.trim()}"`);
+            } else {
+                // Para otros tipos de nodos, mostrar su nombre de etiqueta
+                console.log(`Elemento: <${nodoHijo.nodeName.toLowerCase()}>`);
+            }
+        });
+    </script>
+</body>
+
+</html>
+
