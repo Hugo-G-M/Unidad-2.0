@@ -4,12 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Cursor con imagen</title>
-    <style>
-        img {
-            position:absolute;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -17,6 +11,7 @@
     <script>
         imagen = document.querySelector("img");
         document.querySelector("html").addEventListener('mousemove',function(event) {
+            imagen.style.position = "absolute";
             imagen.style.top = (event.clientY) + 'px';
             imagen.style.left = (event.clientX) + 'px';
         })
