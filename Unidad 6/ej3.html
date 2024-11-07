@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solo permite números</title>
+</head>
+
+<body>
+    <input type="text" id="caja">
+    <script>
+        document.getElementById("caja").addEventListener("keydown", function (e) {
+            if (!(e.keyCode >= 48 && e.keyCode <= 57)) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
