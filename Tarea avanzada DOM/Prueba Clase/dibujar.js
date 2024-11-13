@@ -48,7 +48,4 @@ celda.addEventListener('clic', activarPincel);
 function activarPincel () {
     document.get
 }
-
-Crea una caja de texto donde quepan 100 caracteres y que a medida que escribamos nos avise del número de caracteres quequedan libres
-Ademas se deben permitir pulsar las teclas backspace, suprimir y las flechas horizontales cuando se haya llegado al máximo número de caracteres
 */

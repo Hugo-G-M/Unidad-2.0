@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="tablero"></div>
+
+    <script>
+        let tablero = document.querySelector('div');
+
+        for (let i=0; i<9; i++) {
+            document.createElement()
+        }
+        let caja2 = document.querySelector('.caja2');
+        let caja3 = document.querySelector('.caja3');
+
+        tablero.addEventListener('drop', function (e) {
+            e.preventDefault();
+            if (e.target.id === 'img') {
+                e.dataTransfer.getData(e.target.id);
+            }
+        });
+        
+        caja3.addEventListener('drop', function (e) {
+            e.preventDefault();
+            if (e.target.id === 'text') {
+                e.dataTransfer.getData(e.target.id);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .caja1 {
+            border: solid 1px red;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+
+        .caja2 {
+            border: solid 1px blue;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+
+        .caja3 {
+            border: solid 1px green;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caja1">
+        <img src="recursos/ball.gif" id="imagen" draggable="true"><!--Las imagenes por defecto tienen el dragable activado-->
+        <p id="texto" draggable="true">TEXTO</p>
+    </div>
+    <div class="caja2"></div>
+    <div class="caja3"></div>
+
+    <script>
+        let caja1 = document.querySelector('.caja1')
+        let caja2 = document.querySelector('.caja2');
+        let caja3 = document.querySelector('.caja3');
+        let imagen = document.getElementById('imagen');
+        let texto = document.getElementById('texto');
+
+        imagen.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('img', e.target.id);
+        });
+
+        texto.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text', e.target.id);
+        });
+
+        caja2.addEventListener('drop', function (e) {
+            e.preventDefault();
+            if (e.target.id === 'img') {
+                e.dataTransfer.getData(e.target.id);
+            }
+        });
+        
+        caja3.addEventListener('drop', function (e) {
+            e.preventDefault();
+            if (e.target.id === 'text') {
+                e.dataTransfer.getData(e.target.id);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            border: solid 1px red;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div draggable="true" class="caja1">
+        <img src="recursos/imagen.jpg" draggable="true"><!--Las imagenes por defecto tienen el dragable activado-->
+    </div>
+    <div draggable="true" class="caja2"></div>
+
+    <div draggable="true" class="caja3"></div>
+    <div draggable="true" class="caja4"></div>
+
+    <script>
+        let caja1 = document.querySelector('.caja1');
+        let caja2 = document.querySelector('.caja2');
+        let caja3 = document.querySelector('.caja3');
+        let caja4 = document.querySelector('.caja4');
+
+        caja1.addEventListener('drop', () => {
+            if (!caja1.childElementCount) {
+                caja1.append(caja2.children[0]);
+            }
+        });
+
+        caja2.addEventListener('drop', () => {
+            if (caja2.childElementCount === 0) {
+                caja2.append(caja1.children[0]);
+            }
+        });
+
+        caja1.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+
+        caja2.addEventListener('dragover', function (e) {
+            e.preventDefault();
+        });
+//EJERCICIO 2
+        caja3.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text', 'El texto de la caja 3');
+        });
+
+        caja4.addEventListener('drop', function (e) {
+            e.preventDefault();
+            console.log(e.dataTransfer.getData('text'));
+        });
+        
+        caja4.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            //Sin este evento no nos deja soltar nada encima de la caja
+        });
+    </script>
+
+</body>
+
+</html>

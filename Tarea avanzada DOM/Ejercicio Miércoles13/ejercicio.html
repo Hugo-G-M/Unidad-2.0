@@ -2,3 +2,30 @@
 Crea una caja de texto donde quepan 100 caracteres y que a medida que escribamos nos avise del número de caracteres que quedan libres
 Ademas se deben permitir pulsar las teclas backspace, suprimir y las flechas horizontales cuando se haya llegado al máximo número de caracteres
 -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Caracteres</title>
+</head>
+
+<body>
+    <textarea id="textArea" maxlength="100" oninput="actualizarContador()"></textarea>
+    <div id="contador">Caracteres restantes: 100</div>
+
+    <script>
+        let textArea = document.getElementById("textArea");
+        let contador = document.getElementById("contador");
+
+        function actualizarContador() {
+            let caracteres = 100 - textArea.value.length;
+            contador.textContent = `Caracteres restantes: ${caracteres}`;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            border: solid 1px red;
+            height: 150px;
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caja1">
+        <img src="recursos/ball.gif" id="imagen" draggable="true"><!--Las imagenes por defecto tienen el dragable activado-->
+        <p id="texto" draggable="true">TEXTO</p>
+    </div>
+    <div class="caja2"></div>
+
+    <script>
+        let caja2 = document.querySelector('.caja2');
+        let imagen = document.getElementById('imagen');
+        let texto = document.getElementById('texto');
+
+        imagen.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('img', e.target.id);
+        });
+
+        texto.addEventListener('dragstart', function (e) {
+            e.dataTransfer.setData('text', e.target.id);
+        });
+        
+    </script>
+
+</body>
+
+</html>
