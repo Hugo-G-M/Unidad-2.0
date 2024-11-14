@@ -18,19 +18,19 @@ Cada vez que el pincel esté activado se mostrará un mensaje debajo de la palet
 */
 
 window.addEventListener('load', crearTablero);
+
 function crearTablero() {
     let zonadibujo = document.getElementById('zonadibujo');
     zonadibujo.style.width = "500px";
 
     let tabla = document.createElement('table');
 
-    let i = 1;
-    let j = 0;
     let fila;
     let celda;
-    for (i; i < 31; i++) {
+
+    for (let i = 0; i < 30; i++) {
         fila = document.createElement('tr');
-        for (j; j < 31; j++) {
+        for (let j = 0; j < 30; j++) {
             celda = document.createElement('td');
             fila.appendChild(celda);
             celda.style.border = "medium solid";
@@ -38,7 +38,6 @@ function crearTablero() {
             celda.style.height = "10px";
         }
         tabla.appendChild(fila);
-        j = 0;
     }
     zonadibujo.appendChild(tabla);
 }
