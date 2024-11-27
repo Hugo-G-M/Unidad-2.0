@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="480" height="320"></canvas> <!--Lienzo donde se representará el juego-->
+
+    <script>
+        var canvas = document.getElementById("myCanvas"); //Guardamos una referencia del canvas en una variable
+        var ctx = canvas.getContext("2d"); //Guardamos el contexto de gráficos 2d en otra variable
+        var x = canvas.width / 2;
+        var y = canvas.height - 30;
+        var dx = 2;
+        var dy = -2;
+        var ballRadius = 10;
+
+        /* ctx.beginPath();
+        ctx.rect(20, 40, 50, 50); //Los primeros 2 valores son las coordenadas del punto en el que comienza a dibujarse el rectángulo, los 2 últimos son el ancho y el alto
+        ctx.fillStyle = "#FF0000"; //Esta propiedad guarda un color que se utilizará en el siguiente método para rellenar la figura de ese color
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.rect(160, 10, 100, 40);
+        ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+        ctx.stroke();
+        ctx.closePath();
+        */
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); //Limpia todo lo que este contenido en las dimensiones especificadas (2 valores para el punto de inicio, 2 valores para el punto de fin)
+            drawBall(); //Dibujamos una pelota
+
+            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+                dx = -dx;
+                ctx.fillStyle = "blue";
+                ctx.fill();
+            }
+            if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+                dy = -dy;
+                ctx.fillStyle = "yellow";
+                ctx.fill();
+            }
+
+            x += dx;
+            y += dy;
+        }
+
+        function drawBall() {
+            //Esta función dibuja una pelota
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2, false);
+            ctx.fillStyle = "green";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        setInterval(draw, 10); //Modificando el tiempo se puede cambiar la velocidad de movimiento de la pelota
+
+    </script>
+</body>
+
+</html>
